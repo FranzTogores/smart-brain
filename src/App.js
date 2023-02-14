@@ -9,6 +9,12 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
 
+const cors = require('cors')
+const corsOptions = {
+  origin: 'https://smart-brain-api-bokkenkun.onrender.com/',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 
 const initialState ={
   input: '',
@@ -66,6 +72,7 @@ class App extends Component {
     this.setState({imageUrl: this.state.input});
       fetch('https://smart-brain-api-bokkenkun.onrender.com/imageurl', {
         method: 'post',
+        mode: 'cors',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
           input: this.state.input
@@ -76,6 +83,7 @@ class App extends Component {
         if (response) {
           fetch('https://smart-brain-api-bokkenkun.onrender.com/image', {
             method: 'put',
+            mode: 'cors',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               id: this.state.user.id
