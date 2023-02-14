@@ -9,11 +9,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
 
-const cors = require('cors')
-const corsOptions = {
-  origin: 'https://smart-brain-api-bokkenkun.onrender.com/',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+
 
 
 const initialState ={
